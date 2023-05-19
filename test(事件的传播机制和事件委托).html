@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #root {
+            width: 300px;
+            height: 300px;
+            background: lightblue;
+        }
+
+        #outer {
+            width: 200px;
+            height: 200px;
+            background: lightgreen;
+        }
+
+        #inner {
+            width: 100px;
+            height: 100px;
+            background: lightcoral;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root" class="center">
+        <div id="outer" class="center">
+            <div id="inner" class="center"></div>
+        </div>
+    </div>
+    <script>
+        // 层级结构 window -> document -> html -> body -> root -> outer -> inner
+        // ev.stopPropagation：阻止事件的传播「包含捕获和冒泡」
+        // ev.stopImmediatePropagation：也是阻止事件传播，只不过它可以把当前元素绑定的其他方法「同级的」，如果还未执行，也不会让其再执行了！！
+        const html = document.documentElement,
+            body = document.body,
+            root = document.querySelector('#root'),
+            outer = document.querySelector('#outer'),
+            inner = document.querySelector('#inner');
+
+
+        root.addEventListener('click', function (ev) {
+            console.log('root 捕获');
+        }, true); 
+        root.addEventListener('click', function () {
+            console.log('root 冒泡');
+        }, false);
+
+        outer.addEventListener('click', function () {
+            console.log('outer 捕获');
+        }, true);
+        outer.addEventListener('click', function () {
+            console.log('outer 冒泡');
+        }, false);
+
+        inner.addEventListener('click', function () {
+            console.log('inner 捕获');
+        }, true);
+        inner.addEventListener('click', function (ev) {
+            // ev.stopImmediatePropagation();
+            // ev.stopPropagation();
+            console.log('inner 冒泡1');
+        }, false);
+    </script>
+</body>
+
+</html>

@@ -11,7 +11,9 @@ export default function firstFuncComponent(props) {
   })
   return (
     <div style={{marginTop:'16px'}}>
+      
         {/* {props.title} */}
+
         <div>{header}</div>
         <h1 style={{color:"red"}}>姓名：{props.detail.name}</h1>
         <h1 style={{color:"red"}}>年纪：{props.detail.age}</h1>
