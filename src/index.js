@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import RefComponent from './components/HookComponents/RefComponent';
-import CallBackComponent from './components/HookComponents/自定义Hook';
-import Vote from "./components/Vote"
+import Vote from "./components/ClassVote"
 import "./index.less"
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
