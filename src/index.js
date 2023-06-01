@@ -1,11 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Vote from "./components/ClassVote"
+import Vote from "./components/Vote"
 import "./index.less"
+import store from './store/index';
+import List from './components/List'
+import StoreContext from "./Store"
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
-    <Vote/>
+    <StoreContext.Provider value={store}>
+      <div style={{display:'flex'}}>
+      <Vote />
+      <List />
+      </div>
+     
+    </StoreContext.Provider>
+
   </>
 );
 

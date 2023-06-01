@@ -1,34 +1,27 @@
-import React, { useState } from 'react'
+import React, { useContext, useState,useEffect } from 'react'
 import VoteMain from "./VoteMain"
 import VoteFooter from "./VoteFooter"
+import StoreContext from '../../Store'
 import "./index.less"
 export default function Vote() {
- const [voteInfo, setvoteInfo] = useState({
-    supNum:0,
-    oppNum:0
- })
- const changeVoteInfo = (type)=>{
-    if (type === 'opp') {
-        console.log(123456);
-        setvoteInfo({
-            ...voteInfo,
-            oppNum:voteInfo.oppNum +=1
-        })
-    }else{
-        setvoteInfo({
-            ...voteInfo,
-            supNum:voteInfo.supNum +=1
-        })
-    }
- }
-  return (
-    <div className='voteContaienr'>
-        <header>
-            <h2>投票组件</h2>
-        </header>
-        <VoteMain supNum={voteInfo.supNum} oppNum={voteInfo.oppNum}/>
-        <VoteFooter change={changeVoteInfo}/>
-    </div>
+    const store = useContext(StoreContext)
+    console.log(store.getState());
+    const {supNum,oppNum} = store.getState().voteReducer
+    const [forceUpdate, setforceUpdate] = useState({})
+    useEffect(() => {
+      store.subscribe(()=>{
+        setforceUpdate({})
+      })
+    }, [])
+    
+    return (
+        <div className='voteContaienr'>
+            <header>
+                <h2>投票组件</h2>
+            </header>
+            <VoteMain supNum={supNum} oppNum={oppNum} />
+            <VoteFooter/>
+        </div>
 
-  )
+    )
 }
