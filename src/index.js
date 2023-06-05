@@ -4,17 +4,17 @@ import Vote from "./components/Vote"
 import "./index.less"
 import store from './store/index';
 import List from './components/List'
-import StoreContext from "./Store"
+// import StoreContext from "./Store"
+import { Provider } from 'react-redux';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
-    <StoreContext.Provider value={store}>
+    <Provider store={store}>
       <div style={{display:'flex'}}>
       <Vote />
-      <List />
       </div>
      
-    </StoreContext.Provider>
+    </Provider>
 
   </>
 );

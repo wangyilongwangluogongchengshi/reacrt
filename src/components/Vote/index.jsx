@@ -1,19 +1,11 @@
 import React, { useContext, useState,useEffect } from 'react'
 import VoteMain from "./VoteMain"
 import VoteFooter from "./VoteFooter"
-import StoreContext from '../../Store'
 import "./index.less"
-export default function Vote() {
-    const store = useContext(StoreContext)
-    console.log(store.getState());
-    const {supNum,oppNum} = store.getState().voteReducer
-    const [forceUpdate, setforceUpdate] = useState({})
-    useEffect(() => {
-      store.subscribe(()=>{
-        setforceUpdate({})
-      })
-    }, [])
-    
+import { connect } from 'react-redux'
+const Vote = function Vote(props) {
+  console.log(props);
+  const {supNum,oppNum} = props.vote
     return (
         <div className='voteContaienr'>
             <header>
@@ -25,3 +17,11 @@ export default function Vote() {
 
     )
 }
+
+const mapStateToProps =(state)=>{
+  return {
+    vote:state.voteReducer
+  }
+}
+
+export default connect(mapStateToProps)(Vote)

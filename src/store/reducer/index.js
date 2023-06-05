@@ -5,3 +5,8 @@ export default combineReducers({
     stuListReducer,
     voteReducer
 })
+{
+    voteReducer:{
+        
+    }
+}
