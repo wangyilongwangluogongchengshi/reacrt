@@ -14,7 +14,6 @@ const Vote = function Vote(props) {
             <VoteMain supNum={supNum} oppNum={oppNum} />
             <VoteFooter/>
         </div>
-
     )
 }
 

@@ -1,21 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Vote from "./components/Vote"
 import "./index.less"
 import store from './store/index';
-import List from './components/List'
-// import StoreContext from "./Store"
 import { Provider } from 'react-redux';
+import Task from './components/Task';
+/* 使用ANTD组件库 */
+import { ConfigProvider } from 'antd';
+import zhCN from 'antd/locale/zh_CN';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
-    <Provider store={store}>
-      <div style={{display:'flex'}}>
-      <Vote />
-      </div>
-     
-    </Provider>
-
+    <ConfigProvider locale={zhCN}>
+      <Provider store={store}>
+        <Task />
+      </Provider>
+    </ConfigProvider>
   </>
 );
 
