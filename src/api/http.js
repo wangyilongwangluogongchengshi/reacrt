@@ -1,10 +1,10 @@
 import axios from "axios";
 import qs from 'qs';
 import { message } from 'antd';
-import _ from '../utils/index';
+import _ from '@/assets/utils';
 
 const http = axios.create({
-    baseURL: '/api',
+    baseURL: '',
     timeout: 60000
 });
 http.defaults.transformRequest = data => {

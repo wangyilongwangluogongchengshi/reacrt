@@ -1,6 +1,27 @@
-import { createStore,applyMiddleware } from "redux";
-import reducer from "./reducer";
-import thunk from "redux-thunk";
-const store = createStore(reducer,applyMiddleware(thunk))
+import TaskStore from "./TaskStore";
+import PersonalStore from "./PersonalStore";
 
-export default store
+class Store {
+    constructor() {
+        this.task = new TaskStore(this);
+        this.personal = new PersonalStore(this);
+    }
+}
+export default new Store();
+/* 
+store = {
+    task:{
+        taskList:null,
+        __proto__:TaskStore.prototype
+            queryAllTaskAction
+            removeTaskAction
+            updateTaskAction
+    },
+    personal:{
+        info:null,
+        __proto__:PersonalStore.prototype
+            queryInfo
+    },
+    __proto__: Store.prototype
+}; 
+*/
