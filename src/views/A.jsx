@@ -1,11 +1,8 @@
 /* A.jsx */
 import React from "react";
 import { Link, Route, Redirect, Switch } from 'react-router-dom';
-// import A1 from './a/A1';
-import A1 from './a/A1';
-import A2 from './a/A2';
-import A3 from './a/A3';
-
+import aRoutes from "../router/aRoutes";
+import RouterView from "../router";
 // 处理样式
 import styled from "styled-components";
 const DemoBox = styled.div`
@@ -27,12 +24,13 @@ const A = function A() {
             <Link to="/a/a3">A3</Link>
         </div>
         <div className="content">
-            <Switch>
+            {/* <Switch>
                 <Redirect exact from="/a" to="/a/a1" />
                 <Route path="/a/a1" component={A1} />
                 <Route path="/a/a2" component={A2} />
                 <Route path="/a/a3" component={A3} />
-            </Switch>
+            </Switch> */}
+            <RouterView routes={aRoutes} />
         </div>
     </DemoBox>;
 };
