@@ -1,7 +1,7 @@
-import { lazy } from "react"
+
 import A from "../views/A"
-// import B from '../views/B'
-// import C from '../views/C'
+import B from '../views/B'
+import C from '../views/C'
 /* 
 一级路由 
   重定向选项
@@ -41,13 +41,13 @@ const routes = [
     {
         path: '/b',
         name: 'b',
-        component: lazy(()=> import('../views/B')),
+        component: B,
         meta: {}
     }, 
     {
         path: '/c',
         name: 'c',
-        component: lazy(()=> import('../views/C')),
+        component: C,
         meta: {
             auth:true
         }

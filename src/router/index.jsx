@@ -32,20 +32,14 @@ export default function RouterView(props) {
                             if (meta.auth === true) {
                                 let token = ''
                                 if (token) {
-
-                                    return <Suspense>
-                                        <Component />
-                                    </Suspense>
-
+                                    return <Component />
                                 } else {
                                     window.alert('请先登录在进行后续操作')
                                     return <Redirect to='/' />
                                 }
                             } else {
                                 // console.log("没健全");
-                                return <Suspense>
-                                    <Component />
-                                </Suspense>
+                                return <Component />
                             }
                             // 在这里可以通过meta中的信息来进行特殊处理，比如登录状态的检验
 
