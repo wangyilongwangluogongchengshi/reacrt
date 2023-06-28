@@ -2,8 +2,6 @@
 import React from "react";
 // import {useRou}
 import { Link, Outlet } from 'react-router-dom';
-import aRoutes from "../router/aRoutes";
-import RouterView from "../router";
 // 处理样式
 import styled from "styled-components";
 const DemoBox = styled.div`
