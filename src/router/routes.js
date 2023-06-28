@@ -39,9 +39,15 @@ const routes = [
         }
     },
     {
-        path: '/b',
+        path: '/b/:name?/:age?',
         name: 'b',
         component: lazy(()=> import('../views/B')),
+        meta: {}
+    }, 
+    {
+        path: '/test',
+        name: 'test',
+        component: lazy(()=> import('../views/Test')),
         meta: {}
     }, 
     {

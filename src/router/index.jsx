@@ -28,13 +28,14 @@ export default function RouterView(props) {
                         }
                         props = { path }
                         if (exact) props.exact = true;
-                        return <Route key={index} {...props} render={() => {
+                        return <Route key={index} {...props} render={(props) => {
                             if (meta.auth === true) {
                                 let token = ''
                                 if (token) {
 
                                     return <Suspense>
-                                        <Component />
+                                        {/* 把render中的props传给组件，使组件具有路由的一些方法 */}
+                                        <Component {...props} />
                                     </Suspense>
 
                                 } else {
@@ -44,7 +45,7 @@ export default function RouterView(props) {
                             } else {
                                 // console.log("没健全");
                                 return <Suspense>
-                                    <Component />
+                                    <Component {...props} />
                                 </Suspense>
                             }
                             // 在这里可以通过meta中的信息来进行特殊处理，比如登录状态的检验

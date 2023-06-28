@@ -16,6 +16,7 @@ const formatTime = function formatTime(time) {
 };
 
 const Task = function Task(props) {
+    
     /* 基于属性，获取TaskStore的实例 */
     let { task } = props;
 
