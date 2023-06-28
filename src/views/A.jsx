@@ -1,7 +1,7 @@
 /* A.jsx */
 import React from "react";
 // import {useRou}
-import { Link, Route, Redirect, Switch } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import aRoutes from "../router/aRoutes";
 import RouterView from "../router";
 // 处理样式
@@ -25,7 +25,8 @@ const A = function A(props) {
             <Link to="/a/a3">A3</Link>
         </div>
         <div className="content">
-            <RouterView routes={aRoutes} />
+            <Outlet />
+            {/* <RouterView routes={aRoutes} /> */}
         </div>
     </DemoBox>;
 };
