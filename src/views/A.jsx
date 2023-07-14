@@ -15,7 +15,7 @@ const DemoBox = styled.div`
 `;
 
 const A = function A(props) {
-    console.log(props);
+    // console.log(props);
     return <DemoBox>
         <div className="menu">
             <Link to="/a/a1">A1</Link>
